@@ -24,12 +24,9 @@ package com.cognifide.slice.cq.mapper;
 import com.cognifide.slice.cq.mapper.processor.ImageFieldProcessor;
 import com.cognifide.slice.mapper.MapperBuilder;
 import com.cognifide.slice.mapper.api.Mapper;
-import com.cognifide.slice.mapper.api.MapperFactory;
-import com.cognifide.slice.mapper.api.processor.FieldPostProcessor;
-import com.cognifide.slice.mapper.api.processor.FieldProcessor;
 import com.google.inject.Inject;
 
-public class CQMapperFactory implements MapperFactory {
+public class CQMapperFactory {
 
 	private final MapperBuilder mapperBuilder;
 
@@ -38,29 +35,8 @@ public class CQMapperFactory implements MapperFactory {
 		this.mapperBuilder = mapperBuilder;
 	}
 
-	@Override
 	public Mapper getMapper() {
 		return mapperBuilder.addDefaultSlingProcessors().addFieldProcessor(new ImageFieldProcessor()).build();
-	}
-
-	@Override
-	public void registerFieldProcessor(FieldProcessor fieldProcessor, Mapper mapper) {
-		mapper.registerFieldProcessor(fieldProcessor);
-	}
-
-	@Override
-	public void unregisterFieldProcessor(FieldProcessor fieldProcessor, Mapper mapper) {
-		mapper.unregisterFieldProcessor(fieldProcessor);
-	}
-
-	@Override
-	public void registerFieldPostProcessor(FieldPostProcessor fieldPostProcessor, Mapper mapper) {
-		mapper.registerFieldPostProcessor(fieldPostProcessor);
-	}
-
-	@Override
-	public void unregisterFieldPostProcessor(FieldPostProcessor fieldPostProcessor, Mapper mapper) {
-		mapper.unregisterFieldPostProcessor(fieldPostProcessor);
 	}
 
 }
