@@ -22,7 +22,7 @@ package com.cognifide.slice.cq.mapper;
  * #L%
  */
 import com.cognifide.slice.cq.mapper.processor.ImageFieldProcessor;
-import com.cognifide.slice.mapper.SlingMapperFactory;
+import com.cognifide.slice.mapper.MapperBuilder;
 import com.cognifide.slice.mapper.api.Mapper;
 import com.cognifide.slice.mapper.api.MapperFactory;
 import com.cognifide.slice.mapper.api.processor.FieldPostProcessor;
@@ -31,18 +31,16 @@ import com.google.inject.Inject;
 
 public class CQMapperFactory implements MapperFactory {
 
-	private final SlingMapperFactory slingMapperFactory;
+	private final MapperBuilder mapperBuilder;
 
 	@Inject
-	public CQMapperFactory(final SlingMapperFactory slingMapperFactory) {
-		this.slingMapperFactory = slingMapperFactory;
+	public CQMapperFactory(final MapperBuilder mapperBuilder) {
+		this.mapperBuilder = mapperBuilder;
 	}
 
 	@Override
 	public Mapper getMapper() {
-		final Mapper mapper = slingMapperFactory.getMapper();
-		mapper.registerFieldProcessor(new ImageFieldProcessor());
-		return mapper;
+		return mapperBuilder.addDefaultSlingProcessors().addFieldProcessor(new ImageFieldProcessor()).build();
 	}
 
 	@Override
