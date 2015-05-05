@@ -49,3 +49,21 @@ Add dependencied to your POM file:
         <version>1.0.0</version>
         <scope>compile</scope>
     </dependency>
+    
+## Documentation
+
+* [Slice wiki](https://cognifide.atlassian.net/wiki/display/SLICE)
+* [Slice users mailing group](http://slice-users.2340343.n4.nabble.com/) if you have any question on how to use it
+* [Slice issue tracking](https://cognifide.atlassian.net/browse/SLICE)
+
+
+## Commercial Support
+
+Technical support can be made available if needed. Please [contact us](mailto:slice-support@cognifide.com) for more details.
+
+We can:
+
+* prioritize your feature request,
+* tailor the product to your needs,
+* provide a training for your engineers,
+* support your development teams.
