@@ -1,3 +1,5 @@
+![Wunderman Thompson Technology logo](./assets/wtt-logo.png)
+
 Slice-CQ55
 ========
 
